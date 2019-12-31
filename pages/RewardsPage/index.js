@@ -4,7 +4,8 @@ import { Searchbar } from 'react-native-paper';
 const RewardsPage = () => {
     const [query, setQuery] = useState('')
     return(
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <View style={{ flex: 1,
+            flexDirection: 'column', }}>
             <Searchbar
         placeholder="Search"
         onChangeText={query => {setQuery(query); }}
