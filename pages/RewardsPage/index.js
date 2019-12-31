@@ -14,7 +14,7 @@ const RewardsPage = () => {
         value={query}
       />
       <ProgramList items={config.sampleItems} width={Dimensions.get('window').width}/>
-        </View>
+    </View>
     )
 }
 export default RewardsPage

@@ -9,7 +9,7 @@ import ProfilePage from './pages/ProfilePage';
 import RewardsPage from './pages/RewardsPage'
 import IconWithBadge from './components/IconWithBadge'
 import Constants from 'expo-constants';
-import SignUpSignInPage from './pages/SignupSignInPage'
+import SignUpSignInPage from './pages/SignUpSignInPage'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import ForgotPasswordPage from './pages/ForgotPasswordPage'
@@ -60,7 +60,7 @@ const AppNavigator = createBottomTabNavigator({
           getTabBarIcon(navigation, focused, tintColor),
       }),
       tabBarOptions: {
-        activeTintColor: 'tomato',
+        activeTintColor: 'purple',
         inactiveTintColor: 'gray',
       },
   });

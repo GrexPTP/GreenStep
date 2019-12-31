@@ -12,7 +12,7 @@ const HomePage = () => {
         <DescribedCard style={{flex: 1, flexDirection: 'column'}} {...item}/>
     )
     return(
-        <View style={{flex: 10, flexDirection: 'column', paddingTop: 5 }}>
+        <View style={{flex: 10, flexDirection: 'column'}}>
             <Carousel style={{flex: 1}} data={items} sliderWidth={Dimensions.get('window').width}
             itemWidth={250} layout={'default'} renderItem={RenderItem} loop={true}/>
             <View style={{flex: 9, justifyContent:'space-around', alignItems: 'center'}}>
