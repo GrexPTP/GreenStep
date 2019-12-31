@@ -9,6 +9,14 @@ import ProfilePage from './pages/ProfilePage';
 import RewardsPage from './pages/RewardsPage'
 import IconWithBadge from './components/IconWithBadge'
 import Constants from 'expo-constants';
+import SignUpSignInPage from './pages/SignupSignInPage'
+import LoginPage from './pages/LoginPage'
+import RegisterPage from './pages/RegisterPage'
+import ForgotPasswordPage from './pages/ForgotPasswordPage'
+import { createStackNavigator } from 'react-navigation-stack';
+
+
+
 const getTabBarIcon = (navigation, focused, tintColor) => {
     const { routeName } = navigation.state;
     let iconName;
@@ -56,8 +64,23 @@ const AppNavigator = createBottomTabNavigator({
         inactiveTintColor: 'gray',
       },
   });
-const AppContainer = createAppContainer(AppNavigator)
-    
+  const AuthenRouter = createStackNavigator(
+    {
+      SignUpSignInPage,
+      LoginPage,
+      RegisterPage,
+      ForgotPasswordPage,
+      HomePage : {
+        screen: createAppContainer(AppNavigator)
+      }
+    },
+    {
+      initialRouteName: 'SignUpSignInPage',
+      headerMode: 'none',
+    }
+  );
+//const AppContainer = createAppContainer(AppNavigator)
+const AppContainer = createAppContainer(AuthenRouter)   
 const App = () => (
     <View style={{flex: 1 ,paddingTop: Constants.statusBarHeight}}>
         <AppContainer/>
