@@ -1,7 +1,10 @@
 import React, {useState} from 'react'
-import {View, Text, Image} from 'react-native'
+import {View, FlatList,Text} from 'react-native'
 import Carousel from 'react-native-snap-carousel'
-import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
+import { Headline, Caption } from 'react-native-paper';
+import DescribedCard from '../../components/DescribedCard';
+import config from '../../constant';
+import { Dimensions } from "react-native";
 const HomePage = () => {
     const [items, setItems] = useState([
         {
@@ -21,22 +24,21 @@ const HomePage = () => {
           description: 'Some short description here'
         }
       ])
-      const MyComponent = ({thumbnail, title, description}) => (
-        <Card>
-          <Card.Cover source={{ uri: thumbnail }} />
-          <Card.Content>
-            <Title style={{textAlign:'center'}}>{title}</Title>
-            <Paragraph>{description}</Paragraph>
-          </Card.Content>
-        </Card>
-      );
+    
     const RenderItem = ({item, index}) => (
-        <MyComponent style={{flex: 1, flexDirection: 'column'}} {...item}/>
+        <DescribedCard style={{flex: 1, flexDirection: 'column'}} {...item}/>
     )
     return(
-        <View style={{ flex: 1,  flexDirection: 'column-reverse', }}>
-            <Carousel data={items} sliderWidth={360}
-          itemWidth={250} layout={'default'} renderItem={RenderItem} loop={true}/>
+        <View style={{flex: 10, flexDirection: 'column', paddingTop: 5 }}>
+            <Carousel style={{flex: 1}} data={items} sliderWidth={Dimensions.get('window').width}
+            itemWidth={250} layout={'default'} renderItem={RenderItem} loop={true}/>
+            <View style={{flex: 9, justifyContent:'space-around', alignItems: 'center'}}>
+                <FlatList
+          data={items}
+          renderItem={({item}) => <DescribedCard  width={Dimensions.get('window').width} {...item}/>}
+        />
+                
+            </View>
         </View>
         
     )
