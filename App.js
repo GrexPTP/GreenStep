@@ -20,7 +20,7 @@ const getTabBarIcon = (navigation, focused, tintColor) => {
       iconName = `ios-list`;
     } else if (routeName === 'Profile' ) {
       iconName = `ios-person`;
-    } else {
+    } else if (routeName === 'Rewards') {
       iconName = `tags`;
     }
     // You can return any component that you like here!
