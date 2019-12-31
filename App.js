@@ -6,6 +6,7 @@ import {createBottomTabNavigator} from "react-navigation-tabs";
 import HomePage from './pages/HomePage';
 import EventsPage from './pages/EventsPage';
 import ProfilePage from './pages/ProfilePage';
+import RewardsPage from './pages/RewardsPage'
 import IconWithBadge from './components/IconWithBadge'
 const getTabBarIcon = (navigation, focused, tintColor) => {
     const { routeName } = navigation.state;
@@ -19,6 +20,8 @@ const getTabBarIcon = (navigation, focused, tintColor) => {
       iconName = `ios-list`;
     } else if (routeName === 'Profile' ) {
       iconName = `ios-person`;
+    } else {
+      iconName = `tags`;
     }
     // You can return any component that you like here!
     return <IconComponent name={iconName} size={25} color={tintColor} />;
@@ -34,6 +37,9 @@ const AppNavigator = createBottomTabNavigator({
     },
     Events: {
       screen: EventsPage
+    },
+    Rewards:{
+      screen: RewardsPage
     },
     Profile: {
         screen: ProfilePage
