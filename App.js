@@ -21,7 +21,7 @@ const getTabBarIcon = (navigation, focused, tintColor) => {
     } else if (routeName === 'Profile' ) {
       iconName = `ios-person`;
     } else if (routeName === 'Rewards') {
-      iconName = `tags`;
+      iconName = `ios-pricetag`;
     }
     // You can return any component that you like here!
     return <IconComponent name={iconName} size={25} color={tintColor} />;
