@@ -8,6 +8,7 @@ import EventsPage from './pages/EventsPage';
 import ProfilePage from './pages/ProfilePage';
 import RewardsPage from './pages/RewardsPage'
 import IconWithBadge from './components/IconWithBadge'
+import Constants from 'expo-constants';
 const getTabBarIcon = (navigation, focused, tintColor) => {
     const { routeName } = navigation.state;
     let iconName;
@@ -55,4 +56,11 @@ const AppNavigator = createBottomTabNavigator({
         inactiveTintColor: 'gray',
       },
   });
-export default createAppContainer(AppNavigator)
+const AppContainer = createAppContainer(AppNavigator)
+    
+const App = () => (
+    <View style={{flex: 1 ,paddingTop: Constants.statusBarHeight}}>
+        <AppContainer/>
+    </View>
+)
+export default App
