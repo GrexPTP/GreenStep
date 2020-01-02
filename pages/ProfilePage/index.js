@@ -9,7 +9,9 @@ const ProfilePage = () => {
             <View style={{flex: 1, backgroundColor: 'purple', alignItems:'center', justifyContent:'center'}}><Avatar.Image size={100} source={{uri: 'https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png'}}/></View>
             <View style={{flex: 2}}>
                 <ScrollView>
-                    <InfoCard/><InfoCard/><InfoCard/>
+                    <InfoCard title='Basic Info'/>
+                    <InfoCard title='Contact Info'/>
+                    <InfoCard title='Lastest History'/>
                 </ScrollView>
             </View>
             
