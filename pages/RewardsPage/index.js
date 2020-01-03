@@ -3,8 +3,14 @@ import {View, Dimensions} from 'react-native'
 import { Searchbar } from 'react-native-paper';
 import ProgramList from '../../components/ProgramList';
 import config from '../../constant';
-const RewardsPage = () => {
+import {createAppContainer} from 'react-navigation'
+import {createStackNavigator} from 'react-navigation-stack'
+import DetailPage from '../DetailPage'
+const RewardsPage = ({navigation}) => {
     const [query, setQuery] = useState('')
+    const GoToDetail = () => {
+        navigation.navigate('Detail')
+    }
     return(
         <View style={{ flex: 1,
             flexDirection: 'column', }}>
@@ -13,8 +19,18 @@ const RewardsPage = () => {
         onChangeText={query => {setQuery(query); }}
         value={query}
       />
-      <ProgramList items={config.sampleItems} width={Dimensions.get('window').width}/>
+      <ProgramList handler={GoToDetail} items={config.sampleItems} width={Dimensions.get('window').width}/>
     </View>
     )
 }
-export default RewardsPage
+const AppNavigator = createStackNavigator({
+    Rewards: {
+      screen: RewardsPage
+    },
+    Detail: {
+      screen: DetailPage
+    }
+  },{
+          initialRouteName: "Rewards"
+  });
+export default createAppContainer(AppNavigator)

@@ -3,8 +3,14 @@ import {View, Text, Dimensions} from 'react-native'
 import { Searchbar } from 'react-native-paper';
 import ProgramList from '../../components/ProgramList';
 import config from '../../constant';
-const EventsPage = () => {
+import {createAppContainer} from 'react-navigation'
+import {createStackNavigator} from 'react-navigation-stack'
+import DetailPage from '../DetailPage'
+const EventsPage = ({navigation}) => {
     const [query, setQuery] = useState('')
+    const GoToDetail = () => {
+        navigation.navigate('Detail')
+    }
     return(
         <View style={{ flex: 1,
             flexDirection: 'column', }}>
@@ -14,8 +20,19 @@ const EventsPage = () => {
         onChangeText={query => {setQuery(query); }}
         value={query}
       />
-      <ProgramList items={config.sampleItems} width={Dimensions.get('window').width}/>
+      <ProgramList handler={GoToDetail} items={config.sampleItems} width={Dimensions.get('window').width}/>
         </View>
     )
 }
-export default EventsPage
+
+const AppNavigator = createStackNavigator({
+    Events: {
+      screen: EventsPage
+    },
+    Detail: {
+      screen: DetailPage
+    }
+  },{
+          initialRouteName: "Events"
+  });
+export default createAppContainer(AppNavigator)
