@@ -30,7 +30,10 @@ const HomePage = ({navigation}) => {
 }
 const AppNavigator = createStackNavigator({
     Home: {
-      screen: HomePage
+      screen: HomePage,
+      navigationOptions: {
+        header: null,
+      },
     },
     Detail: {
       screen: DetailPage
