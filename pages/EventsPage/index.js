@@ -27,7 +27,10 @@ const EventsPage = ({navigation}) => {
 
 const AppNavigator = createStackNavigator({
     Events: {
-      screen: EventsPage
+      screen: EventsPage,
+      navigationOptions: {
+        header: null,
+      },
     },
     Detail: {
       screen: DetailPage

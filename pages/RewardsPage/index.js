@@ -25,7 +25,10 @@ const RewardsPage = ({navigation}) => {
 }
 const AppNavigator = createStackNavigator({
     Rewards: {
-      screen: RewardsPage
+      screen: RewardsPage,
+      navigationOptions: {
+        header: null,
+      },
     },
     Detail: {
       screen: DetailPage
