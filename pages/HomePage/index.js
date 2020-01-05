@@ -8,7 +8,7 @@ import config from '../../constant';
 import {createAppContainer} from 'react-navigation'
 import {createStackNavigator} from 'react-navigation-stack'
 import DetailPage from '../DetailPage'
-
+import Constants from 'expo-constants';
 const HomePage = ({navigation}) => {
     const [items, setItems] = useState(config.sampleItems)
     
@@ -19,7 +19,7 @@ const HomePage = ({navigation}) => {
         navigation.navigate('Detail')
     }
     return(
-        <View style={{flex: 10, flexDirection: 'column'}}>
+        <View style={{flex: 10, flexDirection: 'column', paddingTop: Constants.statusBarHeight}}>
             <Carousel style={{flex: 1}} data={items} sliderWidth={Dimensions.get('window').width}
             itemWidth={250} layout={'default'} renderItem={RenderItem} loop={true}/>
             <View style={{flex: 9, justifyContent:'space-around', alignItems: 'center'}}>

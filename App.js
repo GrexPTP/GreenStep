@@ -82,7 +82,7 @@ const AppNavigator = createBottomTabNavigator({
 //const AppContainer = createAppContainer(AppNavigator)
 const AppContainer = createAppContainer(AuthenRouter)   
 const App = () => (
-    <View style={{flex: 1 ,paddingTop: Constants.statusBarHeight}}>
+    <View style={{flex: 1}}>
         <AppContainer/>
     </View>
 )

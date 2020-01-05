@@ -6,6 +6,7 @@ import config from '../../constant';
 import {createAppContainer} from 'react-navigation'
 import {createStackNavigator} from 'react-navigation-stack'
 import DetailPage from '../DetailPage'
+import Constants from 'expo-constants';
 const EventsPage = ({navigation}) => {
     const [query, setQuery] = useState('')
     const GoToDetail = () => {
@@ -13,7 +14,7 @@ const EventsPage = ({navigation}) => {
     }
     return(
         <View style={{ flex: 1,
-            flexDirection: 'column', }}>
+            flexDirection: 'column', paddingTop: Constants.statusBarHeight }}>
             <Searchbar
             style={{marginBottom: 5}}
         placeholder="Search"
